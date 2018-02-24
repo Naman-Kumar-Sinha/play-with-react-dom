@@ -4,6 +4,7 @@
  */
 
 import React from 'react'
+import {Clock} from './Clock.jsx'
 
 /**
  * 
@@ -15,8 +16,9 @@ import React from 'react'
 export default class extends React.Component {
     render() {
         return (
-            <div style={{ textAlign: 'center' }}>
-                Hello World
+            <div>
+                <h1>React Playground</h1>
+                <Clock />
             </div>
         )
     }
