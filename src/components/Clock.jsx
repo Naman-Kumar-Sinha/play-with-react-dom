@@ -47,7 +47,7 @@ export class Clock extends React.Component {
     /**
      * 
      * 
-     * @returns 
+     * @returns {JSXElement} JSX React element 
      * @memberof Clock
      */
     render() {

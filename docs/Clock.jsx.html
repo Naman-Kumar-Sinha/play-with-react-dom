@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: App.jsx</title>
+    <title>JSDoc: Source: Clock.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: App.jsx</h1>
+    <h1 class="page-title">Source: Clock.jsx</h1>
 
     
 
@@ -26,31 +26,62 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * App Component
- * ./src/components/App.jsx file
- */
-
-import React from 'react'
-import {Clock} from './Clock.jsx'
-import {Toggle} from './Toggle.jsx'
-
+            <pre class="prettyprint source linenums"><code>import React from 'react'
 /**
  * 
- * Default class for App component
+ * 
  * @export
- * @class App
+ * @class Clock
  * @extends {React.Component}
  */
-export default class extends React.Component {
+export class Clock extends React.Component {
+    /**
+     * Creates an instance of Clock.
+     * @param {any} props 
+     * @memberof Clock
+     */
+    constructor(props) {
+        super(props)
+        this.state = { date: new Date() }
+    }
+    /**
+     * 
+     * 
+     * @memberof Clock
+     */
+    componentDidMount() {
+        this.timerID = setInterval(
+            () => this.tick(), 1000
+        )
+    }
+    /**
+     * 
+     * 
+     * @memberof Clock
+     */
+    componentWillUnmount() {
+        clearInterval(this.timerID)
+    }
+    /**
+     * 
+     * 
+     * @memberof Clock
+     */
+    tick() {
+        this.setState({
+            date: new Date()
+        })
+    }
+    /**
+     * 
+     * 
+     * @returns {JSXElement} JSX React element 
+     * @memberof Clock
+     */
     render() {
         return (
             &lt;div>
-                &lt;h1>React Playground&lt;/h1>
-                &lt;h3>Clock Component&lt;/h3>
-                &lt;Clock />
-                &lt;h3>Button Toggle Component&lt;/h3>
-                &lt;Toggle />                
+                &lt;p>{this.state.date.toLocaleTimeString()}&lt;/p>
             &lt;/div>
         )
     }

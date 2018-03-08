@@ -5,6 +5,7 @@
 
 import React from 'react'
 import {Clock} from './Clock.jsx'
+import {Toggle} from './Toggle.jsx'
 
 /**
  * 
@@ -18,7 +19,10 @@ export default class extends React.Component {
         return (
             <div>
                 <h1>React Playground</h1>
+                <h3>Clock Component</h3>
                 <Clock />
+                <h3>Button Toggle Component</h3>
+                <Toggle />                
             </div>
         )
     }
